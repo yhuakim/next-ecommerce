@@ -1,8 +1,8 @@
-import MinusIcon from "../components/Icons";
-import PlusIcon from "../components/Icons";
-import BagIcon from "../components/Icons";
-import BuyIcon from "../components/Icons";
-import Star from "../components/Icons";
+import MinusIcon from "../components/icons/MinusIcon";
+import PlusIcon from "../components/icons/PlusIcon";
+import BagIcon from "../components/icons/BagIcon";
+import BuyIcon from "../components/icons/BuyIcon";
+import Star from "../components/icons/StarIcon";
 
 import { useState } from "react"
 import Modal from "../components/Modal";
@@ -24,17 +24,6 @@ export default function Product({ product }) {
         const amountTotal = Number(quantity * price * 100)
         setAmount(amountTotal)
         setModal(true)
-        // try {
-        //     const res = await fetch('/api/pay', {
-        //         method: 'POST',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({ amount })
-        //     })
-        // } catch (error) {
-        //     console.log(error.message)
-        // }
     }
 
     const addToCart = () => {
@@ -65,11 +54,11 @@ export default function Product({ product }) {
                     <div className="flex items-center text-sm font-normal py-5">
                         Quantity:
                         <span onClick={decrease} className="bg-red-400 mx-3 text-gray-50 hover:scale-x-105 hover:cursor-pointer transition-all">
-                            <MinusIcon />
+                            <MinusIcon onClick={decrease} />
                         </span>
                         {quantity}
                         <span onClick={() => setQuantity(quantity + 1)} className="bg-teal-600 ml-3 text-gray-50 hover:scale-x-105 hover:cursor-pointer transition-all">
-                            <PlusIcon />
+                            <PlusIcon className="w-6 h-6" />
                         </span>
                     </div>
                     <div className="flex justify-between mb-3 py-2">
@@ -83,7 +72,7 @@ export default function Product({ product }) {
                     <p className="text-xl font-normal">{description}</p>
                 </div>
             </section>
-            <div className="absolute top-44 left-[26rem] z-50">
+            <div className={modal ? "absolute top-44 left-[26rem] z-50" : ''}>
                 <Modal modal={modal} setModal={setModal} quantity={quantity} amount={amount} thumbnail={thumbnail} title={title} />
             </div>
         </div>

@@ -40,7 +40,7 @@ export default function Modal({ modal, title, quantity, amount, setModal }) {
 
     return (
         <>
-            <div id="popup-modal" className={`${modal ? "left-96 top-56  z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full translate-x-25 transition ease-in-out duration-1000" : "translate-x-[-1000rem] transition ease-in-out duration-1000"}`}>
+            <div id="popup-modal" className={`${modal ? "left-96 top-56  z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full translate-x-25 transition ease-in-out duration-1000" : "translate-x-[-1000rem] transition ease-in-out duration-1000 -z-50"}`}>
                 <div className="relative w-full h-full max-w-md md:h-auto">
                     <div className="relative bg-slate-800 rounded-lg shadow">
                         <button type="button" onClick={() => setModal(false)} className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
@@ -68,7 +68,7 @@ export default function Modal({ modal, title, quantity, amount, setModal }) {
                     </div>
                 </div>
             </div>
-            <div className={`${modal ? "fixed bg-white opacity-75 left-0 top-0 h-screen w-screen z-[-10] translate-y-25 duration-1000 transition ease-in-out" : 'translate-y-[-1000rem] transition ease-in-out duration-1000'}`}></div>
+            <div className={`${modal ? "fixed bg-white opacity-75 left-0 top-0 h-screen w-screen z-[-10] translate-y-25 duration-1000 transition ease-in-out" : 'translate-y-[-1000rem] transition ease-in-out duration-1000 z-[-1000]'}`}></div>
         </>
     )
 }

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import { useEffect, useState } from 'react'
-import BagIcon from './components/Icons'
-import BuyIcon from './components/Icons'
-import Star from './components/Icons'
+import BagIcon from './components/icons/BagIcon'
+import BuyIcon from './components/icons/BuyIcon'
+import Star from './components/icons/StarIcon'
 
 const inter = Inter({ subsets: ['latin'] })
 
