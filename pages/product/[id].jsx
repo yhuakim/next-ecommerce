@@ -1,4 +1,9 @@
-import { MinusIcon, PlusIcon, BagIcon, BuyIcon, Star } from "../components/Icons";
+import MinusIcon from "../components/Icons";
+import PlusIcon from "../components/Icons";
+import BagIcon from "../components/Icons";
+import BuyIcon from "../components/Icons";
+import Star from "../components/Icons";
+
 import { useState } from "react"
 import Modal from "../components/Modal";
 
