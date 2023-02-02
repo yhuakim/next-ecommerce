@@ -6,12 +6,10 @@ export default async function handler(req, res) {
     // console.log(amount)
     // res.status(200).json({ data: req.body })
     try {
-        const transactionStatus = await Paystack.transaction.verify({
-            reference
-        })
+        const transactionStatus = await Paystack.transaction.verify(reference)
         console.log(transactionStatus, Date.now());
 
-        res.status(200).json({ data: payUrl.data })
+        res.status(200).json(transactionStatus.data)
     } catch (err) {
         console.log(err.message, Date.now());
         res.status(500).json({ message: `${err.message}` })
