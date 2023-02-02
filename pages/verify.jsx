@@ -9,7 +9,7 @@ export default function Verify() {
     })
 
     const router = useRouter()
-    const { reference } = router.query
+    const { trxref } = router.query
 
     useEffect(() => {
         async function fetchData() {
@@ -18,13 +18,13 @@ export default function Verify() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ reference })
+                body: JSON.stringify({ trxref })
             })
 
-            const data = await res.json()
+            const { status, gateway_response } = await res.json()
             setStatus({
-                success: data.status,
-                message: data.gateway_response
+                success: status,
+                message: gateway_response
             })
 
         }

@@ -1,5 +1,5 @@
 // import { BaseClient } from '@xata.io/client';
-const Paystack = require('paystack')('sk_test_4259255d9a69bb794182c42c9f7b0702aac16716')
+const Paystack = require('paystack')(process.env.SECRET_KEY)
 
 export default async function handler(req, res) {
     const { amount, email } = req.body

@@ -1,12 +1,12 @@
 // import { BaseClient } from '@xata.io/client';
-const Paystack = require('paystack')('sk_test_4259255d9a69bb794182c42c9f7b0702aac16716')
+const Paystack = require('paystack')(process.env.SECRET_KEY)
 
 export default async function handler(req, res) {
-    const { reference } = req.body
+    const { trxref } = req.body
     // console.log(amount)
     // res.status(200).json({ data: req.body })
     try {
-        const transactionStatus = await Paystack.transaction.verify(`${reference}`)
+        const transactionStatus = await Paystack.transaction.verify(`${trxref}`)
         console.log(transactionStatus, Date.now());
 
         res.status(200).json(transactionStatus.data)
